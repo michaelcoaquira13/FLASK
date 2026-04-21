@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block contenido %}
+
+<h1 class="titulo">Panel de Administración</h1>
+
+<div class="tabs">
+<button onclick="mostrar('pendientes')">Pendientes</button>
+<button onclick="mostrar('atendidos')">Atendidos</button>
+</div>
+
+<!-- PENDIENTES -->
+<div id="pendientes">
+<table class="tabla-admin">
+<tr>
+<th>Cliente</th><th>Mensaje</th><th>Acción</th>
+</tr>
+
+{% for m in mensajes %}
+{% if m[9] == 'pendiente' %}
+<tr>
+<td>{{m[1]}}</td>
+<td>{{m[6]}}</td>
+<td>
+<form method="POST" action="/responder/{{m[0]}}">
+<input name="respuesta" placeholder="Responder">
+<button>✔</button>
+</form>
+<a href="/eliminar/{{m[0]}}">🗑</a>
+</td>
+</tr>
+{% endif %}
+{% endfor %}
+</table>
+</div>
+
+<!-- ATENDIDOS -->
+<div id="atendidos" style="display:none;">
+<table class="tabla-admin">
+<tr>
+<th>Cliente</th><th>Mensaje</th><th>Respuesta</th>
+</tr>
+
+{% for m in mensajes %}
+{% if m[9] == 'atendido' %}
+<tr class="ok-row">
+<td>{{m[1]}}</td>
+<td>{{m[6]}}</td>
+<td>{{m[7]}}</td>
+</tr>
+{% endif %}
+{% endfor %}
+</table>
+</div>
+
+<script>
+function mostrar(tipo){
+document.getElementById('pendientes').style.display = tipo=='pendientes' ? 'block':'none';
+document.getElementById('atendidos').style.display = tipo=='atendidos' ? 'block':'none';
+}
+</script>
+
+{% endblock %}

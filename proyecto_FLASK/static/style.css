@@ -1,0 +1,134 @@
+body{
+    font-family: 'Segoe UI';
+    background: linear-gradient(135deg,#0f172a,#1e293b);
+    color:white;
+}
+
+/* NAVBAR */
+.navbar-custom{
+    background:#0f172a;
+    padding:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.4);
+}
+
+.navbar-brand{
+    color:#38bdf8;
+    font-weight:bold;
+    font-size:22px;
+}
+
+.navbar-links a{
+    margin:0 15px;
+    color:white;
+    text-decoration:none;
+    position:relative;
+    transition:0.3s;
+}
+
+.navbar-links a::after{
+    content:"";
+    width:0%;
+    height:2px;
+    background:#38bdf8;
+    position:absolute;
+    bottom:-5px;
+    left:0;
+    transition:0.3s;
+}
+
+.navbar-links a:hover::after{
+    width:100%;
+}
+
+/* TITULO */
+.titulo{
+    text-align:center;
+    margin-bottom:40px;
+    font-size:32px;
+}
+
+/* SERVICIOS */
+.grid-servicios{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:#1e293b;
+    padding:25px;
+    border-radius:15px;
+    text-align:center;
+    transition:0.4s;
+    box-shadow:0 10px 30px rgba(0,0,0,0.4);
+}
+
+.card:hover{
+    transform:translateY(-12px) scale(1.05);
+    background:linear-gradient(135deg,#2563eb,#38bdf8);
+}
+
+/* FORM */
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+.form-grid input,
+.form-grid select,
+.form-grid textarea{
+    padding:12px;
+    border-radius:8px;
+    border:none;
+}
+
+textarea{
+    grid-column:1/3;
+}
+
+button{
+    grid-column:1/3;
+    background:#2563eb;
+    color:white;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#1d4ed8;
+    transform:scale(1.05);
+}
+
+/* LOGIN */
+.login-container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:80vh;
+}
+
+.login-card{
+    background:#1e293b;
+    padding:30px;
+    border-radius:15px;
+    width:300px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,0.5);
+}
+
+/* ADMIN */
+.tabla-admin{
+    width:100%;
+    margin-top:20px;
+}
+
+.tabla-admin th{
+    background:#2563eb;
+}
+
+.tabla-admin td, th{
+    padding:12px;
+}

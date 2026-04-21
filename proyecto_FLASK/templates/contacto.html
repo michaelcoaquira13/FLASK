@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block contenido %}
+
+<h1 class="text-center mb-4">Contáctanos</h1>
+
+{% if enviado %}
+<div class="alert alert-success text-center">Mensaje enviado</div>
+{% endif %}
+
+<form method="POST" class="form-grid">
+
+<input name="nombre" placeholder="Nombre" required>
+<input name="email" placeholder="Correo" required>
+<input name="telefono" placeholder="Teléfono" required>
+<input name="direccion" placeholder="Dirección" required>
+
+<select name="servicio" required>
+<option value="">Selecciona servicio</option>
+<option>Desarrollo Web</option>
+<option>Apps Web</option>
+<option>Seguridad</option>
+<option>Redes</option>
+<option>Consultoría</option>
+</select>
+
+<textarea name="mensaje" placeholder="Mensaje"></textarea>
+
+<button>Enviar</button>
+
+</form>
+
+{% endblock %}
